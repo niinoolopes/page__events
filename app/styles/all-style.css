@@ -282,7 +282,8 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  border-bottom: 1px solid #000;
+  z-index: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   background: transparent; }
 
 .logo, .menu {
@@ -321,6 +322,24 @@ header {
   display: block;
   text-transform: uppercase;
   font-weight: bold; }
+
+/* menu ativo com scroll */
+header.ativo {
+  background: #fff;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.25); }
+
+header.ativo .container {
+  display: flex; }
+
+header.ativo .logo-img {
+  max-height: 40px; }
+
+header.ativo .menu {
+  width: 100%; }
+
+header.ativo .menu-list a {
+  text-align: center;
+  padding: 12px 8px; }
 
 /* styles pages PAGES*/
 /*@import 'nome-arquivo.scss';*/
