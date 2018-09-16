@@ -301,22 +301,24 @@ header {
   width: fit-content;
   padding: 15px;
   margin-left: auto; }
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     .menu-mobile {
       display: none; } }
 
 .menu-list {
   padding: 0; }
-  @media (max-width: 575px) {
+  @media (max-width: 767px) {
     .menu-list {
       position: absolute;
-      right: -110%;
+      right: -50%;
+      opacity: 0;
       background: rgba(255, 255, 255, 0.85);
       margin-top: 2px;
       transition: 1s;
       width: 100%;
-      box-shadow: -2px 2px 8px 1px rgba(0, 0, 0, 0.25); } }
-  @media (min-width: 576px) {
+      box-shadow: -2px 2px 8px 1px rgba(0, 0, 0, 0.25);
+      visibility: collapse; } }
+  @media (min-width: 768px) {
     .menu-list {
       display: flex;
       flex-wrap: wrap;
@@ -324,7 +326,10 @@ header {
       margin: auto; } }
 
 .menu-ativo .menu-list {
-  right: -15px; }
+  right: -15px;
+  opacity: 1;
+  z-index: 10;
+  visibility: visible; }
 
 .menu-list a {
   text-align: left;
