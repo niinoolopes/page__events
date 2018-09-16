@@ -1,5 +1,8 @@
 node_modules
 package-lock
+app/assets/icone
+app/assets/images
+app/styles/all.css
 app/styles/src
 app/styles/_include
 app/scripts/src
