@@ -22,7 +22,11 @@ const debounce = function(func, wait, immediate) {
 // fim
 
 
+
+
+
 function scrollOnHeader(){
+    
     // obtendo "altura" da janela
     var alturaWindow = window.pageYOffset;
     // armazenando em variavel o elemento
@@ -31,20 +35,20 @@ function scrollOnHeader(){
     var HeaderHeight = pegaHeader.offsetHeight;
 
        
-    if( alturaWindow > HeaderHeight){
-        foi = "ativo";
+    if( alturaWindow > HeaderHeight){ 
         pegaHeader.classList.add('ativo');
-    }else{
-        foi = "n ativo";
+    }else{ 
         pegaHeader.classList.remove('ativo');
-    }
-    console.log(foi);
-}
-
+    } 
+} 
 
 window.addEventListener('scroll', debounce(function(){
-    scrollOnHeader();
+    scrollOnHeader(scrollToId);
 },50));
+
+window.onload =  function(event) {
+    // console.log('foi');
+}; 
 /*
     Nome: Anderson Lopes
     Data: 27/06/2018
@@ -61,19 +65,45 @@ window.addEventListener('scroll', debounce(function(){
     ao clicar no item da lista, a lista remove a classe voltando a esconder o menu
     tanto no mobile tanto no descktop tambem ira rodar a função da lista
 
+    */
+    var btnMobile = document.querySelector(".menu-mobile");
+    var listMenu = document.querySelector(".menu");
 
-    var btnMobile = document.querySelector(".menu-btn");
-    var listMenu = document.querySelector(".menu-list");
     var  ShowMenu = function() {
-        if (listMenu.className === "menu-list") {
-            listMenu.classList.add("active");
+        if (listMenu.className === "menu") {
+            listMenu.classList.add("menu-ativo");
         } else {
-            listMenu.classList.remove("active");
+            listMenu.classList.remove("menu-ativo");
         }
-    }
+    } 
+
+
+    // ativando menu com clique no botao
     btnMobile.onclick = function(){
         ShowMenu();
     };
+
+
+    // desativando menu ao clicar no item do menu
+    var itensMenu = document.querySelectorAll('.link');
+    //obtendo quantidade    
+    var itensMenuQnt = itensMenu.length
+    //inicio de for
+    for( i=0; i<itensMenuQnt ; i++ ){
+        // armazenando em variavel cada item do menu
+        var e = document.querySelectorAll('.link')[i];  
+        // ativação da função para cada clice no item do menu             
+        e.onclick = function(){
+            ShowMenu();
+        }
+    }
+
+
+
+
+
+
+
     listMenu.onclick = function(){
         listMenu.classList.remove("active");
     };
@@ -85,13 +115,30 @@ window.addEventListener('scroll', debounce(function(){
         item.addEventListener('click', scrollToId);
     })
 
-    function scrollToId(e){
-        console.log("oi");
-        e.preventDefault(); 
+    function scrollToId(e){ 
+        /* 
+            bloqueando função tag a padrao
+        */
+        e.preventDefault();  
+        /*
+            obtendo valor do href da tag clitado
+        */
         var id = this.getAttribute('href');
+        /*
+            obtendo "HEIGHT" do header
+        */
         var alturaMenuFixo = document.querySelector("header").offsetHeight;
-        console.log(alturaMenuFixo)
-        var section = document.querySelector(id).offsetTop - alturaMenuFixo;
+        /*
+            valor header menu ativo
+        */
+        var alturaMenuAtivo = 45;
+        /*
+            obtendo altura da seção com o mesmo nome igual ao ID clicado
+        */
+        //exibindo resultado
+        //console.log(this.offsetHeight)
+
+        var section = document.querySelector(id).offsetTop - alturaMenuAtivo ;
 
         window.scroll(
             {

@@ -286,12 +286,6 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   background: transparent; }
 
-.logo, .menu {
-  display: inline-block; }
-  @media (min-width: 768px) {
-    .logo, .menu {
-      display: block; } }
-
 .logo-img {
   display: block;
   margin: auto;
@@ -303,25 +297,45 @@ header {
       max-height: 100px; } }
 
 .menu-mobile {
-  display: block; }
+  display: block;
+  width: fit-content;
+  padding: 15px;
+  margin-left: auto; }
   @media (min-width: 576px) {
     .menu-mobile {
       display: none; } }
 
 .menu-list {
-  display: none;
   padding: 0; }
+  @media (max-width: 575px) {
+    .menu-list {
+      position: absolute;
+      right: -110%;
+      background: rgba(255, 255, 255, 0.85);
+      margin-top: 2px;
+      transition: 1s;
+      width: 100%;
+      box-shadow: -2px 2px 8px 1px rgba(0, 0, 0, 0.25); } }
   @media (min-width: 576px) {
     .menu-list {
       display: flex;
+      flex-wrap: wrap;
       width: fit-content;
       margin: auto; } }
 
+.menu-ativo .menu-list {
+  right: -15px; }
+
 .menu-list a {
-  padding: 12px 24px;
+  text-align: left;
+  padding: 12px 8px;
   display: block;
   text-transform: uppercase;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 0.875em; }
+  @media (min-width: 576px) {
+    .menu-list a {
+      text-align: center; } }
 
 /* menu ativo com scroll */
 header.ativo {
@@ -329,17 +343,14 @@ header.ativo {
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.25); }
 
 header.ativo .container {
-  display: flex; }
+  display: flex;
+  align-items: center; }
 
 header.ativo .logo-img {
   max-height: 40px; }
 
 header.ativo .menu {
   width: 100%; }
-
-header.ativo .menu-list a {
-  text-align: center;
-  padding: 12px 8px; }
 
 /* styles pages PAGES*/
 /*@import 'nome-arquivo.scss';*/
