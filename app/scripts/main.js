@@ -85,13 +85,13 @@ window.onload =  function(event) {
 
 
     // desativando menu ao clicar no item do menu
-    var itensMenu = document.querySelectorAll('.link');
+    var itensMenu = document.querySelectorAll('.menu .link');
     //obtendo quantidade    
     var itensMenuQnt = itensMenu.length
     //inicio de for
     for( i=0; i<itensMenuQnt ; i++ ){
         // armazenando em variavel cada item do menu
-        var e = document.querySelectorAll('.link')[i];  
+        var e = document.querySelectorAll('.menu .link')[i];  
         // ativação da função para cada clice no item do menu             
         e.onclick = function(){
             ShowMenu();

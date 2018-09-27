@@ -22,13 +22,13 @@ gulp.task('serve', function () {
 });
 
 
-
 /*-TASK - STYLES - GRID -*/
 gulp.task('styles-grid', function(){
     gulp.src('app/styles/src/includes/sass-grid.scss')
     .pipe( sass() )
     .pipe(concat('grid.scss'))
     .pipe(gulp.dest('app/styles/src/includes'))
+    .pipe(browserSync.stream())
     /* */
     console.log("GRID OK!"); 
     /* */
@@ -46,6 +46,7 @@ gulp.task('styles-mini',  function() {
         outputStyle: 'compressed'
     }) )  
     .pipe(gulp.dest('app/styles'))
+    .pipe(browserSync.stream())
     /* */
     console.log("STYLES - MINI OK!"); 
     /* */
@@ -62,6 +63,7 @@ gulp.task('styles', function() {
     // }))
     .pipe(concat('all-style.css'))
     .pipe(gulp.dest('app/styles'))
+    .pipe(browserSync.stream())
     /* */
     console.log("STYLES OK!"); 
     /* */
@@ -73,6 +75,7 @@ gulp.task('scripts',  function() {
     gulp.src('app/scripts/src/**/*.js') 
     .pipe(concat('main.js'))
     .pipe(gulp.dest('app/scripts'))
+    .pipe(browserSync.stream())
     /* */
     console.log("SCRIPTS OK!"); 
     /* */
@@ -84,6 +87,7 @@ gulp.task('images',  function() {
     gulp.src('app/assets/images/src/**/*')
     .pipe(image({ optimizationLevel: 5, progressive: true, interlaced: true }) )
     .pipe(gulp.dest('app/assets/images/'))
+    .pipe(browserSync.stream())
     /* */
     console.log("IMAGES OK!"); 
     /* */
@@ -92,10 +96,10 @@ gulp.task('images',  function() {
 
 /*-TASK - WACTH -*/
 gulp.task('wacth', function(){ 
-    gulp.watch(['app/styles/src/includes/sass-grid.scss','app/styles/src/includes/sass-mixin.scss'],['styles-grid']).on('change', reload);
-    gulp.watch('app/styles/src/**/*.scss',['styles']).on('change', reload);
-    gulp.watch('app/scripts/src/**/*.js',['scripts']).on('change', reload);
-    gulp.watch('app/assets/images/src/*',['images']).on('change', reload);
+    gulp.watch(['app/styles/src/includes/sass-grid.scss','app/styles/src/includes/sass-mixin.scss'],['styles-grid']);
+    gulp.watch('app/styles/src/**/*.scss',['styles']);
+    gulp.watch('app/scripts/src/**/*.js',['scripts']);
+    gulp.watch('app/assets/images/src/*',['images']);
     gulp.watch('app/**/*.html').on('change', reload);
     /* */
     console.log("WACTH OK!"); 
@@ -139,7 +143,7 @@ gulp.task('wacth-teste', function(){
     gulp.watch('app/styles/src/**/*.scss',['styles']);
     gulp.watch('app/scripts/src/**/*.js',['scripts']);
     gulp.watch('app/assets/images/src/*',['images']);
-    gulp.watch('app/**/*.html');
+    gulp.watch('app/**/*.html').on('change', reload);
     /* */
     console.log("WACTH OK!"); 
     /* */
