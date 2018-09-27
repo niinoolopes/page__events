@@ -1,0 +1,102 @@
+.palestrante{
+    background: rgba(0, 0, 0, 0.33);
+}
+.palestrante::before{
+    @include efeito_sombra()
+}
+.palest-titulo{
+    @include section_titulo()
+}
+.palest-titulo::after{
+    @include section_titulo_separador()
+}
+.palest-lista{
+    @include espaco_area()
+}
+.palest-data{
+    text-align: center;
+    @include section_subtitulo()
+}
+.palest-item{
+    padding: 4px 0 16px;
+}
+.palestrante-foto,
+.palest-text{
+    margin: auto;
+}
+.palest-foto{
+    display: block;
+    padding: 8px 0;
+}
+.palest-img{
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+    width: 100%;
+    max-height: 200px;
+    max-width: 200px;
+    transition: 0.2s;
+    box-shadow: 0 2px 4px 0 rgba(15, 20, 25, 0.5);
+}
+.palest-img:hover{
+    box-shadow: 0 1px 6px 2px rgba(15, 20, 25, 0.5);
+}
+.palest-text{
+    max-width: 330px;
+    text-align: center;
+}
+.palest-nome{
+    font-size: 1.125em;
+    margin: 8px 0 0;
+}
+.palest-descricao{
+    margin-bottom: 8px;
+}
+.palest-contato img{
+    border-radius: 50px;
+    max-width: 35px;
+    transition: 0.2s;
+    box-shadow: 0 2px 4px 0 rgba(15, 20, 25, 0.5);
+}
+.palest-contato img:hover{
+    box-shadow: 0 1px 6px 2px rgba(15, 20, 25, 0.5);
+}
+/* primeiro palestrante */
+.palest-lista .palest-item:nth-of-type(1){
+    width: 100%;
+    @include device(S){
+        display: flex;
+    }
+}
+.palest-lista .palest-item:nth-of-type(1) .palest-foto{
+    @include device(S){
+        width: 40%;
+    }
+}
+.palest-lista .palest-item:nth-of-type(1) .palest-img{
+    @include device(S){
+        max-height: 325px;
+        max-width: 325px;
+    }
+    @include device(L){
+        max-height: 400px;
+        max-width: 400px;
+    }
+}
+.palest-lista .palest-item:nth-of-type(1) .palest-text{
+    @include device(S){
+        max-width: unset;
+        padding: 0 16px;
+        width: 60%;
+        text-align: left;
+    }
+}
+.palest-lista .palest-item:nth-of-type(1) .palest-nome{
+    @include device(S){
+        font-size: 1.25em;
+        margin: 16px 0;
+    }
+    @include device(M){
+        font-size: 1.65em;
+    }
+}

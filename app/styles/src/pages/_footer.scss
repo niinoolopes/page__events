@@ -1,0 +1,36 @@
+.contato{
+    background: rgba(0, 0, 0, 0.33);
+    padding: 48px 8px;
+    height: 100vh;
+    @include device(S){
+        height: unset;
+    }
+    @include device (M){
+        padding: 32px 0;
+    }
+    @include device (L){
+        padding: 48px 0;
+    }
+}
+.contato [class*="col"]{
+    margin-bottom: 48px;
+    @include device (M){
+        margin-bottom: unset;
+    }
+}
+.contato ul{
+    padding: 0;
+}
+.contato li{
+    padding-bottom: 3px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 9px;
+}
+.contato .social{
+    display: flex;
+    justify-content: center; 
+}
+.contato .social-logo{
+    width: 40px;
+    margin: 10px;
+}

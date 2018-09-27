@@ -1,0 +1,26 @@
+.patrocinador{
+ 
+}
+.patrocinador-titulo{
+    @include section_titulo()
+}
+.patrocinador-titulo::after{
+    @include section_titulo_separador()
+}
+.patro-subtitulo{
+    text-align: center;
+    @include section_subtitulo()
+}
+.patrocinador-lista{
+    @include espaco_area()
+}
+.patro-list{
+    @include espaco_area()
+}
+.patro-item{
+    flex-grow: 1;
+}
+.patro-img{
+    display: block;
+    margin: 8px auto;
+}

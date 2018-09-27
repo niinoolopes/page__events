@@ -1,0 +1,54 @@
+.cronograma::before{
+    @include efeito_sombra()
+}
+.cronog-titulo{
+    @include section_titulo()
+}    
+.cronog-titulo::after{
+    @include section_titulo_separador()
+}
+.cronog-data{
+    @include section_subtitulo()
+}
+
+
+/* estilo para tabelas */
+.cronogt.table{
+    margin: auto;
+    width: 80%;
+    @include espaco_area()
+}
+.cronogt.thead{
+}
+.cronogt.tbody{
+    box-shadow: 0 2px 4px 0 rgba(15, 20, 25, 0.5);
+}
+ 
+// background
+.cronogt.tbody tr:nth-of-type(2n+0){
+    background: rgba(0, 0, 0, 0.05);
+}
+.cronogt.tbody tr:nth-of-type(2n+1){
+    background: rgba(0, 0, 0, 0.10);
+}
+
+.cronog-hora{
+    font-weight: bold;
+    @include device(M){
+        font-size: 1.25em; 
+    }
+}
+.cronog-desc{ 
+    width: 100%;
+}
+.cronog-hora,
+.cronog-desc{
+    padding: 0 12px 0 12px;
+    line-height: 2;
+    @include device(S){
+        line-height: 2.33
+    }
+    @include device(M){
+        line-height: 2.66
+    }
+}

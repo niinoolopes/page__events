@@ -1,0 +1,156 @@
+/* - GRID
+  update - > 09/2018
+  Anderson Lopes ->  niinoolopes0@gmail.com 
+  @niinoolopes0
+*/ 
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+// IMPORTANDO MIXIN
+@import 'sass-mixin';
+
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+// MIXIN PARA CONSTRUÇÃO DO GRID
+@mixin m-row( $V ) {
+    margin-left: ( -$gutter / $V ) + px;
+    margin-right: ( -$gutter / $V ) + px;
+}
+@mixin m-container( $P , $M ){
+    @if ($P!=0){
+        padding-left: ( $gutter / $P ) + px;
+        padding-right: ( $gutter / $P ) + px; 
+    }
+    @else if ($P=0){
+        padding-left: 0px;
+        padding-right: 0px; 
+    }
+    margin-left: $M;
+    margin-right: $M;
+}
+@mixin m-col ( $P ){
+    flex-grow: 1;
+    flex-basis: 0;
+    width: 100%; 
+    padding-left: ( $gutter / $P ) + px;
+    padding-right: ( $gutter / $P ) + px;
+} 
+
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+// GERAIS
+/*containers*/
+.container.row,
+.container.row-s,
+.container.row-d,
+.container.row-lg{
+    @include m-container( 0 , auto )
+}
+.row,
+.row-s,
+.row-d,
+.row-lg{
+    @include m-row(2);
+} 
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+/* GRID */
+.container{  
+    @include m-container( 2 , auto )
+}   
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col{
+    @include m-col(2)
+}
+@for $i from 1 through $colunas{
+    $width: 100 / $colunas * $i; 
+    .col-#{$i} {
+        flex-grow: #{$i}; 
+        width: $width + %; 
+    } 
+}
+
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+/* GRID SMALL */
+@include device(S){
+    .container{
+        max-width: $containerS;
+    }  
+    .row-s{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-s{
+        @include m-col(2)
+    }
+    @for $i from 1 through $colunas{
+        $width: 100 / $colunas * $i; 
+        .col-s-#{$i} {
+            flex-grow: #{$i}; 
+            width: $width + %; 
+        } 
+    }
+}
+
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+/* GRID MEDIO */
+@include device(M){
+    .container{
+        max-width: $containerM;
+    } 
+    .row-m{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-m{
+        @include m-col(2)
+    }
+    @for $i from 1 through $colunas{
+        $width: 100 / $colunas * $i; 
+        .col-m-#{$i} {
+            flex-grow: #{$i}; 
+            width: $width + %;
+        } 
+    }
+}
+
+
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+/* GRID LARGE */
+@include device(L){
+    .container{
+        max-width: $containerL;
+    }
+    .row-lg{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-lg{
+        @include m-col(2)
+    }
+    @for $i from 1 through $colunas{
+        $width: 100 / $colunas * $i; 
+        .col-lg-#{$i} {
+            flex-grow: #{$i}; 
+            width: $width + %; 
+        } 
+    }
+}

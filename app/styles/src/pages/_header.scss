@@ -1,0 +1,87 @@
+header{
+    position: fixed;
+    width: 100%;
+
+    top: 0;
+    z-index: 1;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    background: transparent;
+} 
+.logo-img{
+    display: block;
+    margin: auto;
+    max-width: 150px;
+    object-fit: cover;
+    @include device(M){
+        max-width: 220px;
+        max-height: 100px;
+    }
+}
+.menu-mobile{
+    display: block;
+    width: fit-content;
+    padding: 15px;
+    margin-left: auto;
+    @include device(M){
+        display: none;
+    }
+}
+.menu-list{
+    padding: 0;
+    @include device(767px){
+
+        position: absolute;
+        right: -50%; 
+        opacity: 0;
+        
+        background: rgba(255, 255, 255, 0.85);
+        margin-top: 2px;
+        transition: 1s; 
+        width: 100%;
+        box-shadow: -2px 2px 8px 1px rgba(0, 0, 0, 0.25);
+        visibility: collapse;
+    }
+
+    @include device(M){
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        margin: auto;
+    } 
+}
+.menu-ativo .menu-list{
+    right: -15px;
+    opacity: 1;
+    z-index: 10;    
+    visibility: visible;
+}
+.menu-list a{
+    text-align: left; 
+    padding: 12px 8px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.875em;
+    @include device(M){
+        text-align: center; 
+    }
+}
+
+/* menu ativo com scroll */
+header.ativo{
+    background: #fff;
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.25);
+}
+header.ativo .container{
+    display: flex;
+    align-items: center;
+}
+header.ativo .logo-img{
+    max-height: 40px;
+}
+header.ativo .menu{
+    width: 100%; 
+}
+header.ativo .menu-list li{
+}

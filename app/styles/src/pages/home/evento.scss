@@ -1,0 +1,38 @@
+.evento{
+    padding: 24px 0;
+    @include device (M){
+        padding: 32px 0;
+    }
+    @include device (L){
+        padding: 48px 0;
+    }
+}
+.evento-bloco{
+    margin-bottom: 24px;
+    @include device(S){
+        margin-bottom: 0;
+    }
+}
+.evento-icone{
+    display: block;
+    margin: 16px auto;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    @include device(M){
+        margin: 28px auto;
+    }
+}
+.evento-titulo{
+    text-align: center;
+    font-size: 1.25em;
+    @include device(M){
+        margin-bottom: 8px;
+    }
+}
+.evento-descricao.address{
+    text-align: center;
+}
+.evento-descricao{
+    color: rgba(0, 0, 0, 0.66);
+    text-align: center;
+}

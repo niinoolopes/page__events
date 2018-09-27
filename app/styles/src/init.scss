@@ -1,0 +1,24 @@
+/* imports */
+/* @import 'caminho/arquivo'; */
+
+
+
+/* PADRÕES */
+@import 'includes/sass-mixin';
+@import 'includes/reset';
+@import 'includes/grid';
+
+
+
+/* styles pages GERAIS*/
+@import 'pages/page';
+@import 'pages/header';
+@import 'pages/footer';
+@import 'pages/sidebar';
+
+
+
+/* styles pages PAGES*/
+@import 'pages/home/init'; 
+@import 'pages/fotos/init'; 
+@import 'pages/participe/init'; 
