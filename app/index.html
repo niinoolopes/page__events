@@ -81,6 +81,25 @@
             <h2 class="palest-titulo">Palestrantes</h2>
             <div class="palest-lista">
                 <h2 class="palest-data">Dia 2 Fevereiro 2019</h2>
+
+                a
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        1
+                    </div>
+                    <div class="mySlides fade">
+                        2
+                    </div>
+                    <div class="mySlides fade">
+                        3
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    
+                </div>
+                b
+
                 <div class="row-s">
                     <div class="col-s-6 col-m-4 col-lg-3 palest-item">
                         <div class="palest-foto">
@@ -230,10 +249,17 @@
                 Cronograma
             </h2>
 
-            <div class="row-lg">
-                <div class="col-lg-6">
+            <div class="row tab">
+                <button class="tablinks" onclick="openCity(event, 'dia1')">Dia 2 Fevereiro</button>
+                <button class="tablinks" onclick="openCity(event, 'dia2')">Dia 3 Fevereiro</button>
+                <button class="tablinks" onclick="openCity(event, 'dia3')">Dia 4 Fevereiro</button>
+            </div>
 
-                    <table class="cronogt table">
+            <div class="row-lg">
+
+                <div class="col-lg-3">
+
+                    <table class="cronogt table tab_card" id="dia1">
                         <thead class="cronogt thead">
                             <tr><td colspan="2"><h3 class="cronog-data">Dia 2 Fevereiro 2019</h3></td></tr>
                         </thead>
@@ -296,9 +322,9 @@
                     </table>
 
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-3">
 
-                    <table class="cronogt table">
+                    <table class="cronogt table tab_card" id="dia2">
                         <thead class="cronogt thead">
                             <tr><td colspan="2"><h3 class="cronog-data">Dia 3 Fevereiro 2019</h3></td></tr>
                         </thead>
@@ -351,16 +377,65 @@
                                 </td>
                                 <td class="cronog-desc">Sorteios</td>
                             </tr>
-                            <tr>
-                                <td class="cronog-hora">
-                                    18:30
-                                </td>
-                                <td class="cronog-desc">Encerramento</td>
-                            </tr>
+                            <tr> 
                         </tbody>
                     </table>
 
                 </div>
+                <div class="col-lg-3">
+
+                    <table class="cronogt table tab_card" id="dia3">
+                        <thead class="cronogt thead">
+                            <tr><td colspan="2"><h3 class="cronog-data">Dia 4 Fevereiro 2019</h3></td></tr>
+                        </thead>
+                        <tbody class="cronogt tbody">
+                            <tr>
+                                <td class="cronog-hora">
+                                    08:00
+                                </td>
+                                <td class="cronog-desc">Credenciamento</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    09:00
+                                </td>
+                                <td class="cronog-desc">Apresentação 1</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    10:30
+                                </td>
+                                <td class="cronog-desc">Apresentação 2</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    12:00
+                                </td>
+                                <td class="cronog-desc">Almoço</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    13:00
+                                </td>
+                                <td class="cronog-desc">Apresentação 3</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    15:00
+                                </td>
+                                <td class="cronog-desc">Apresentação 4</td>
+                            </tr>
+                            <tr>
+                                <td class="cronog-hora">
+                                    17:00
+                                </td>
+                                <td class="cronog-desc">Cafézinho</td>
+                            </tr>  
+                        </tbody>
+                    </table>
+
+                </div>
+
             </div>
 
         </div>
